@@ -17,7 +17,7 @@
 ### Datos de la Comisión y Equipo de Desarrollo
 **Comisión:** K1.1 &nbsp;|&nbsp; **Grupo:** A13
 
-| N.° | Integrante | Rol / GitHub |
+| N.° | Integrante |
 | :---: | :--- | :---: |
 | **1** | **Bois, Cristian Gabriel** 
 | **2** | **Comisso Bentz, Matias Gabriel** 
