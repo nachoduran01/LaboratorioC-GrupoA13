@@ -18,11 +18,11 @@
 **Comisión:** K1.1 &nbsp;|&nbsp; **Grupo:** A13
 
 | N.° | Integrante |
-| :---: | :--- | :---: |
-| **1** | **Bois, Cristian Gabriel** 
-| **2** | **Comisso Bentz, Matias Gabriel** 
-| **3** | **Ferreyra, Valentino** 
-| **4** | **Medina Duran Cantón, Jose Ignacio** 
+| :---: | :--- |
+| **1** | **Bois, Cristian Gabriel** |
+| **2** | **Comisso Bentz, Matias Gabriel** |
+| **3** | **Ferreyra, Valentino** |
+| **4** | **Medina Duran Cantón, Jose Ignacio** |
 
 ---
 
