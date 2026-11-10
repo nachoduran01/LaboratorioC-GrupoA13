@@ -27,3 +27,19 @@
 ---
 
 </div>
+
+---
+
+## 📌 Descripción del Escenario
+
+### Situación 3: Inyección Translunar (TLI) e Inercia en Trayectoria Libre
+El sistema simula la fase posterior al impulso de la etapa ICPS en órbita terrestre baja (LEO), donde la nave Orion ingresa a una trayectoria de retorno libre hacia la Luna sin propulsión activa, gobernada por la inercia y los campos gravitatorios de la Tierra y la Luna.
+
+### Reglas y Dinámica de la Simulación
+* **Modo de Operación:** Simulación interactiva por consola con menú principal.
+* **Ingreso de Parámetros:** Permite trabajar con los datos nominales de la misión Artemis o ingresar valores personalizados (masa de la nave, altitud orbital, velocidad $v_{TLI}$).
+* **Condición de Éxito:** Alcanzar y superar el punto de equilibrio gravitatorio Tierra-Luna ($L_1$) para asegurar la captura gravitatoria lunar en trayectoria de retorno libre.
+* **Condición de Falla:** Impulso $v_{TLI}$ insuficiente o desvío crítico que cause el reingreso prematuro o la caída hacia la Tierra antes de alcanzar el punto neutro.
+
+---
+
