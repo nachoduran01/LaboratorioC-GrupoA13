@@ -15,7 +15,7 @@ double leer_decimal(const char* mensaje, double min, double max) {
     return valor;
 }
 
-int pedir_entero(const char* mensaje, int min, int max) {
+int leer_entero(const char* mensaje, int min, int max) {
     int valor;
     int leidos;
     do {
