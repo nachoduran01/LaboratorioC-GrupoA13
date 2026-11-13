@@ -13,13 +13,13 @@ int main(void) {
 
         switch (opcion) {
             case 1:
-                printf("\n[En desarrollo] Simulacion nominal...\n");
+                printf("\nError...\n");
                 break;
             case 2:
-                printf("\n[En desarrollo] Simulacion personalizada...\n");
+                printf("\nError2...\n");
                 break;
             case 3:
-                printf("\nSaliendo del programa...\n");
+                printf("\nError3...\n");
                 break;
         }
 
