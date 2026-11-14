@@ -58,3 +58,8 @@ Prompt 3: Necesito armar una función void mostrar_reporte(Mision_t *mision) que
 
 Adaptación: La IA generó correctamente la estructura de los printf y proporcionó justificaciones físicas muy sólidas para la Ley de Inercia (inciso a) y la asimetría de combustible (inciso d). Para los incisos b y c, reemplazamos los nombres de las variables sugeridas por la IA para que coincidan exactamente con los structs que nuestro equipo ya había definido en el proyecto.
 
+**Prompt Inicial:** Estoy desarrollando el simulador de la misión Artemis. Necesito que actúes como asistente técnico para resolver dudas puntuales sobre manejo del buffer en C y comandos colaborativos de Git, sin que me escribas el código completo del trabajo.
+
+**Prompt 1:** Te comparto las funciones de validación numérica que armé. Quiero que analices el código, intentes romperlo y me indiques si encontrás alguna falla o brecha.
+
+**Adaptación:** La IA analizó la lógica y detectó una vulnerabilidad crítica: si el usuario ingresa una señal de fin de archivo (Ctrl+Z o EOF), la limpieza del buffer falla y el programa colapsa en un bucle infinito. Siguiendo su analisis, rehice el módulo abandonando `scanf`. Implementamos `fgets` para capturar la línea completa de forma segura, `sscanf` para extraer el dato, y `clearerr(stdin)` para limpiar el estado de error ante un EOF, logrando un código robusto y a prueba de fallos.
