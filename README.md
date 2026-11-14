@@ -53,6 +53,9 @@ El sistema está diseñado de forma modular, separando la interfaz de usuario, l
 ├── simulador.c       # Implementación de ecuaciones físicas de TLI, energía y reportes en consola
 ├── validaciones.h    # Prototipos de lectura segura y validación de rangos numéricos
 ├── validaciones.c    # Captura de datos mediante fgets/sscanf y protección contra EOF/buffer sucio
+├── interfaz.h        # Prototipos de visualización ASCII, animación de trayectoria y control de consola
+├── interfaz.c        # Renderizado de trayectoria Tierra-Luna, barras de energía e historial visual
+├── makefile          # Automatización de compilación modular con GCC
 └── README.md         # Documentación técnica del proyecto y registro de uso de IA
 ```
 
@@ -79,9 +82,16 @@ Para modelar la **Inyección Translunar (TLI)** y el vuelo por inercia hacia el 
 Ubicarse en la carpeta raíz del proyecto y compilar todos los módulos enlazando explícitamente la librería matemática (`-lm`):
 
 ```bash
-gcc main.c simulador.c validaciones.c -o artemis -Wall -Wextra -lm
+# Compilación manual con GCC
+gcc main.c simulador.c validaciones.c interfaz.c -o artemis -std=c11 -Wall -Wextra -pedantic -lm
+
+# O compilación automatizada utilizando el Makefile incluido
+make
+```
 
 Para ejecutar el simulador:
+
+```bash
 # En Windows (CMD / PowerShell)
 artemis.exe
 
@@ -136,3 +146,11 @@ Adaptación: La IA generó correctamente la estructura de los printf y proporcio
 **Prompt 3 (Depuración de compilación en GCC):** Al compilar `main.c` junto con `simulador.c` y `validaciones.c` en GCC me arroja `undefined reference to sqrt` y advertencias de declaración implícita. ¿A qué se debe este error en la etapa de enlazado?
 
 **Validación y Adaptación:** La IA explicó que las funciones de `<math.h>` requieren enlazar explícitamente la librería matemática con el flag `-lm` al final del comando de compilación (`gcc main.c simulador.c validaciones.c -o artemis -lm`) y verificar que los prototipos en los `.h` coincidan exactamente con las firmas en los `.c`. Se verificó la compilación limpia sin advertencias (`-Wall -Wextra`).
+
+---
+
+---
+
+#### Ferreyra, Valentino — Módulo de Interfaz Visual ASCII (`interfaz.h` / `interfaz.c`) y Automatización (`makefile`)
+
+**Contexto de uso:** Desarrollo de la animación ASCII de trayectoria Tierra-Luna, barras comparativas de energía, visualización del historial y automatización de compilación mediante `makefile`.
