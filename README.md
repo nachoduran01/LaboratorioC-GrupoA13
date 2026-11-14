@@ -149,8 +149,6 @@ Adaptación: La IA generó correctamente la estructura de los printf y proporcio
 
 ---
 
----
-
 #### Ferreyra, Valentino — Módulo de Interfaz Visual ASCII (`interfaz.h` / `interfaz.c`) y Automatización (`makefile`)
 
 **Contexto de uso:** Desarrollo de la animación ASCII de trayectoria Tierra-Luna, barras comparativas de energía, visualización del historial y automatización de compilación mediante `makefile`.
