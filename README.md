@@ -43,6 +43,54 @@ El sistema simula la fase posterior al impulso de la etapa ICPS en órbita terre
 
 ---
 
+## Arquitectura del Proyecto
+
+El sistema está diseñado de forma modular, separando la interfaz de usuario, la validación de entradas y el motor de cálculo físico:
+
+```text
+├── main.c            # Orquestación del programa, menú interactivo y control de flujo
+├── simulador.h       # Definición de constantes físicas, estructuras (Mision_t) y prototipos de cálculo
+├── simulador.c       # Implementación de ecuaciones físicas de TLI, energía y reportes en consola
+├── validaciones.h    # Prototipos de lectura segura y validación de rangos numéricos
+├── validaciones.c    # Captura de datos mediante fgets/sscanf y protección contra EOF/buffer sucio
+└── README.md         # Documentación técnica del proyecto y registro de uso de IA
+```
+
+---
+
+### Modelo Físico Implementado
+
+Para modelar la **Inyección Translunar (TLI)** y el vuelo por inercia hacia el punto de equilibrio gravitatorio Tierra-Luna ($L_1$), el simulador trabaja en doble precisión (`double`) aplicando:
+
+* **Energía Cinética Traslacional:** $E_c = \frac{1}{2} \cdot m \cdot v_{TLI}^2$
+* **Velocidad Orbital en LEO:** $v_{orb} = \sqrt{\frac{G \cdot M_T}{R_T + h}}$
+* **Velocidad de Escape Terrestre:** $v_{esc} = \sqrt{\frac{2 \cdot G \cdot M_T}{R_T + h}}$
+* **Punto de Equilibrio Gravitatorio ($L_1$):** Determinado a partir de la igualdad de atracciones gravitatorias entre la Tierra y la Luna ($\frac{M_T}{d_T^2} = \frac{M_L}{d_L^2}$).
+
+---
+
+### Compilación y Ejecución
+
+#### Requisitos
+* Compilador **GCC** (MinGW en Windows o GCC estándar en Linux/macOS).
+* Librería matemática estándar de C (`<math.h>`).
+
+#### Comandos
+Ubicarse en la carpeta raíz del proyecto y compilar todos los módulos enlazando explícitamente la librería matemática (`-lm`):
+
+```bash
+gcc main.c simulador.c validaciones.c -o artemis -Wall -Wextra -lm
+
+Para ejecutar el simulador:
+# En Windows (CMD / PowerShell)
+artemis.exe
+
+# En Linux / macOS / Git Bash
+./artemis
+```
+
+---
+
 ### Uso de Inteligencia Artificial (Gemini)
 
 #### Medina Duran Cantón, Jose Ignacio — Módulo de Simulación Física (`simulador.h` / `simulador.c`)
