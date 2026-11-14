@@ -152,3 +152,19 @@ Adaptación: La IA generó correctamente la estructura de los printf y proporcio
 #### Ferreyra, Valentino — Módulo de Interfaz Visual ASCII (`interfaz.h` / `interfaz.c`) y Automatización (`makefile`)
 
 **Contexto de uso:** Desarrollo de la animación ASCII de trayectoria Tierra-Luna, barras comparativas de energía, visualización del historial y automatización de compilación mediante `makefile`.
+
+#### Ferreyra, Valentino — Módulo de Interfaz Visual ASCII (interfaz.h / interfaz.c) y Automatización (Makefile)
+
+Prompt 1 (Diseño de interfaz visual): Estoy desarrollando un simulador de Inyección Translunar (TLI) en C para el proyecto Artemis. Necesito agregar una interfaz visual en la terminal utilizando únicamente caracteres ASCII, sin incorporar librerías externas y respetando el estándar C11. Quiero representar gráficamente la Tierra, la Luna, la nave Orion y el punto de equilibrio calculado por el simulador. También quiero incluir una animación de la trayectoria de la nave y barras comparativas de energía. Es importante que no modifiques la lógica de los cálculos físicos ni el módulo de validaciones, sino que desarrolles esta funcionalidad en archivos independientes interfaz.c e interfaz.h.
+
+Adaptación: La IA propuso separar la presentación visual de la lógica del simulador mediante un nuevo módulo de interfaz. Se incorporaron representaciones ASCII del sistema Tierra-Luna, la ubicación aproximada de la nave y el punto de equilibrio según el valor de r_equilibrio. También se desarrollaron barras comparativas para visualizar los valores energéticos de la misión, respetando las unidades correspondientes. De esta manera, se agregó una representación gráfica en terminal sin alterar los cálculos físicos existentes.
+
+Prompt 2 (Integración de la interfaz y automatización de compilación): Ya tengo desarrollado el módulo de interfaz visual en interfaz.c e interfaz.h. Necesito integrarlo al programa principal sin modificar el funcionamiento del simulador ni las validaciones. Indicame exactamente qué modificaciones debo realizar en main.c para mostrar la interfaz después de ejecutar una simulación y cómo actualizar el Makefile para que también compile el nuevo módulo junto con los archivos existentes.
+
+Adaptación: La IA indicó cómo incorporar las funciones del módulo de interfaz en el flujo del programa principal, mostrando la representación visual después de ejecutar cada simulación y permitiendo visualizar el historial. Además, se actualizó el Makefile para incluir interfaz.c en la compilación y generar el ejecutable junto con los demás módulos. Se mantuvo la separación de responsabilidades entre el menú principal, los cálculos físicos, las validaciones y la presentación visual.
+
+Prompt 3 (Depuración y ejecución en Visual Studio Code): Estoy trabajando en Windows 11 con Visual Studio Code y GCC. Después de integrar el módulo de interfaz, necesito compilar y ejecutar todos los archivos del proyecto utilizando C11. Indicame el comando completo de compilación y cómo solucionar posibles errores relacionados con la configuración de ejecución de VS Code.
+
+Adaptación: La IA proporcionó el comando de compilación incluyendo todos los archivos fuente del proyecto y las opciones necesarias para enlazar la librería matemática. También ayudó a identificar un problema en la configuración de ejecución de VS Code, relacionado con una ruta de ejecutable incorrecta. Se verificó la posibilidad de compilar y ejecutar el programa directamente desde PowerShell.
+
+---
