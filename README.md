@@ -41,9 +41,29 @@ El sistema simula la fase posterior al impulso de la etapa ICPS en órbita terre
 * **Condición de Éxito:** Alcanzar y superar el punto de equilibrio gravitatorio Tierra-Luna ($L_1$) para asegurar la captura gravitatoria lunar en trayectoria de retorno libre.
 * **Condición de Falla:** Impulso $v_{TLI}$ insuficiente o desvío crítico que cause el reingreso prematuro o la caída hacia la Tierra antes de alcanzar el punto neutro.
 
----
-
 ### Uso de Inteligencia Artificial (Gemini)
+
+Prompt Inicial: Estoy realizando un laboratorio en C. Quiero que analices el trabajo que te voy a compartir y focalices principalmente en dos cosas. La primera es el punto 4, como verás hay varios escenarios propuestos. Lo que vamos a hacer es trabajar con el tercero: Inyección Translunar — TLI e Inercia en Trayectoria Libre (1.ª Ley de Newton y Energía). Lo segundo en lo que vas a focalizar es el punto 6, el uso de la inteligencia artificial. No pretendo que me resuelvas nada, yo te iré realizando consultas sobre dudas que vaya teniendo. Por lo que quiero que esperes a que yo te realice las preguntas para responder. 
+
+Prompt 1: Al tener datos y variables muy precisas por números decimales. ¿Conviene usar el tipo float o double?
+
+Adaptación: En este caso la IA recomendó que se usara el tipo double ya que tiene un límite de precisión más alto que float (64 bits frente a 32 bits). Este se implementó en el archivo de simulador.h para definir las constantes físicas universales (como la masa terrestre y la constante de gravitación) y las variables de los structs Entradas_t y Resultados_t.
+
+Prompt 2: Como habrás visto, entre tantas otras cosas tengo que calcular la energía cinética y hacer cálculos de proporciones de masas con raíces cuadradas. ¿Qué librería estándar de C debo incluir para resolver potencias y raíces? Explicame exactamente qué funciones usar para estos dos casos puntuales,ycómo implementarlas.
+
+Adaptación: La IA indicó que debíamos incluir <math.h> y utilizar las funciones pow(base, exponente) y sqrt(valor). Además, nos advirtió que para evitar errores en la etapa de enlazado (linking), el comando de compilación en GCC debe incluir obligatoriamente la bandera -lm al final (gcc main.c simulador.c validaciones.c -o artemis -lm).
+
+
+Prompt 3: Necesito armar una función void mostrar_reporte(Mision_t *mision) que imprima por consola un reporte ordenado de los resultados. Necesito que la función responda a las preguntas del escenario 3 mediante printf.
+
+Adaptación: La IA generó correctamente la estructura de los printf y proporcionó justificaciones físicas muy sólidas para la Ley de Inercia (inciso a) y la asimetría de combustible (inciso d). Para los incisos b y c, reemplazamos los nombres de las variables sugeridas por la IA para que coincidan exactamente con los structs que nuestro equipo ya había definido en el proyecto.
+
+**Prompt Inicial:** Estoy desarrollando el simulador de la misión Artemis. Necesito que actúes como asistente técnico para resolver dudas puntuales sobre manejo del buffer en C y comandos colaborativos de Git, sin que me escribas el código completo del trabajo.
+
+**Prompt 1:** Te comparto las funciones de validación numérica que armé. Quiero que analices el código, intentes romperlo y me indiques si encontrás alguna falla o brecha.
+
+**Adaptación:** La IA analizó la lógica y detectó una vulnerabilidad crítica: si el usuario ingresa una señal de fin de archivo (Ctrl+Z o EOF), la limpieza del buffer falla y el programa colapsa en un bucle infinito. Siguiendo su analisis, rehice el módulo abandonando `scanf`. Implementamos `fgets` para capturar la línea completa de forma segura, `sscanf` para extraer el dato, y `clearerr(stdin)` para limpiar el estado de error ante un EOF, logrando un código robusto y a prueba de fallos.
+
 
 #### Módulo Principal (`main.c`) — Orquestación, Menú e Integración
 
